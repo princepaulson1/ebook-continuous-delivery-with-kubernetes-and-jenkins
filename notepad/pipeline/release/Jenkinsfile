@@ -1,4 +1,4 @@
-podTemplate(label: 'release', 
+podTemplate(label: 'release',
   containers: [
     containerTemplate(name: 'kubectl', image: 'jorgeacetozi/kubectl:1.7.0', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'maven', image: 'jorgeacetozi/maven:3.5.0-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
@@ -17,12 +17,12 @@ podTemplate(label: 'release',
   node ('release') {
     def image_name = "notepad"
 
-    stage ('Create a testing environment for running Unit/Integration/Acceptance Tests against branch master') {
-      build job: 'notepad-testing', parameters: [[$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'master']]
+    stage ('Create a testing environment for running Unit/Integration/Acceptance Tests against branch demo') {
+      build job: 'notepad-testing', parameters: [[$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'demo']]
     }
 
     stage('Destroy the previously created Testing environment') {
-      container("kubectl") { 
+      container("kubectl") {
         sh 'kubectl delete all -l env=testing'
       }
     }

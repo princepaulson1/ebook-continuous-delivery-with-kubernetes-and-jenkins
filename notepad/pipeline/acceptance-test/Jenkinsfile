@@ -1,4 +1,4 @@
-podTemplate(label: 'acceptance', 
+podTemplate(label: 'acceptance',
   containers: [
     containerTemplate(name: 'maven-firefox', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'maven-chrome', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
