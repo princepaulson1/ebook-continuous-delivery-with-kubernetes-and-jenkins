@@ -1,4 +1,4 @@
-podTemplate(label: 'staging', 
+podTemplate(label: 'staging',
   containers: [
     containerTemplate(name: 'kubectl', image: 'jorgeacetozi/kubectl:1.7.0', ttyEnabled: true, command: 'cat')
   ],
@@ -30,7 +30,7 @@ podTemplate(label: 'staging',
 
     stage ('Run Acceptance Tests') {
       build job: 'notepad-acceptance-test', parameters: [
-        [$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'master'],
+        [$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'demo'],
         [$class: 'StringParameterValue', name: 'NOTEPAD_URL', value: 'http://notepad-service-staging:8080']
       ]
     }
