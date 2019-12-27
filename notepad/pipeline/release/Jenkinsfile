@@ -38,7 +38,7 @@ podTemplate(label: 'release',
           cd notepad
           git config --global user.email "princepaulson1@gmail.com"
           git config --global user.name "princepaulson1"
-          mvn -B -s /etc/maven/settings.xml release:prepare "-DreleaseVersion=${RELEASE_VERSION}" "-DdevelopmentVersion=${NEW_VERSION}" release:perform -Darguments="-DskipTests"
+          mvn -B -s /etc/maven/settings.xml release:clean release:prepare "-DreleaseVersion=${RELEASE_VERSION}" "-DdevelopmentVersion=${NEW_VERSION}" release:perform -Darguments="-DskipTests"
         """
       }
     }
