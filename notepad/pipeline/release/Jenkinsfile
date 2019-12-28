@@ -17,8 +17,8 @@ podTemplate(label: 'release',
   node ('release') {
     def image_name = "notepad"
 
-    stage ('Create a testing environment for running Unit/Integration/Acceptance Tests against branch demo') {
-      build job: 'notepad-testing', parameters: [[$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'demo']]
+    stage ('Create a testing environment for running Unit/Integration/Acceptance Tests against branch master') {
+      build job: 'notepad-testing', parameters: [[$class: 'StringParameterValue', name: 'GIT_BRANCH', value: 'master']]
     }
 
     stage('Destroy the previously created Testing environment') {
